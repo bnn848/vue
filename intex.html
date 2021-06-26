@@ -45,10 +45,12 @@
         v-for="post in posts"
         v-bind:key="post.id"
         :title="post.title"
-        @enlarge-text="enlargeText"
+        v-on:enlarge-text="onEnlargeText"
       ></blog-post>
     </div>
   </div>
+
+  <input v-model="searchText" />
   
   
   <script src="https://unpkg.com/vue@next"></script>

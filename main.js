@@ -115,13 +115,13 @@ const App = {
         {id: 3, title: 'ただただ眠いのかもしれない'}
       ],
       postFontSize: 1,
-      name:"",
-      methods: {
-        enlargeText: function(enlargeAmount) {
-          this.postFontSize += enlargeAmount
-          console.log('動いてます')
-        }
-      }
+    }
+  },
+  
+  methods: {
+    onEnlargeText(enlargeAmount) {
+      this.postFontSize += enlargeAmount
+      console.log('動いてます')
     }
   }
 }
@@ -135,10 +135,12 @@ app.component('blog-post', {
   template: `
     <div class="blog-post">
       <h4>{{ title }}</h4>
-      <button v-on:click="enlargeText(0.1)">
-        Enlarge text
+      <button v-on:click="$emit('enlargeText', 0.1)">
+        {{title}}
       </button>
     </div>`
 })
 
 app.mount('#blog-post-demo')
+
+
