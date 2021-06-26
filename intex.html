@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>MyFirstVueApp</title>
+</head>
+<body>
+
+<!-- 
+  <div id="counter" class="{ active: isActive}">
+    Counter: {{ counter }}
+  </div>
+
+  <div id="bind-attribute">
+    <span v-bind:title="message">
+      Hover your mouse over me for a few seconds to see my dynamically bound title!
+    </span>
+  </div>
+
+  <div id="event-handling">
+    <p>{{message}}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+  </div>
+
+  <div id="two-way-binding">
+    <p>{{message}}</p>
+    <input v-model="message" />
+  </div>
+
+  <div id="conditional-rendering">
+    <button v-on:click="watch">click!</button>
+    <span v-if="seen">Now you see me</span>
+  </div>
+
+  <div id="app"></div>
+
+  <div id="example">
+    <p>Using mustaches: {{ rawHTML }}</p>
+    <p>Using v-HTML directive:<span v-html="rawHTML"></span></p>
+  </div> -->
+
+  <div id="blog-post-demo">
+    <div :style="{ fontSize: postFontSize + 'em'}">
+      <blog-post
+        v-for="post in posts"
+        v-bind:key="post.id"
+        :title="post.title"
+        @enlarge-text="enlargeText"
+      ></blog-post>
+    </div>
+  </div>
+  
+  
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
+
+<!--
+v-xxx : ディレクティブとは描画されたDOMに動的な処理を付与するもの。
+titleはホバーすると何かしらのテキスト要素を表示させるもので、今回はmain.jsのdataメソッドに格納されたmessageをbindしている。
+
+v-on: xxx : xxxという操作を加える（addEventListener）。メソッドはmain.js内にmethodとして記述する。
+
+v-model="" : 入力と表示をbindすることができる。
+pタグの中身はmain.jsのmessageで、inputタグはそのmain.jsのmessageとbindされている。
+
+v-for="" : for...in構文と同様、配列内のデータを繰り返し処理により取得する
+
+-->
